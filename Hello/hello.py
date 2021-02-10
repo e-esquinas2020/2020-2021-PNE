@@ -1,1 +1,2 @@
-print("Hello, this is my first Pycharm file")
+for e in range(1, 21):
+    print(e)
