@@ -1,2 +1,2 @@
-for e in range(1, 21):
-    print(e)
+print("This is my first python program in the Pycharm IDE")
+print("Hello world!!")
