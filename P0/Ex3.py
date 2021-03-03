@@ -1,7 +1,7 @@
 import Seq0
 
 GENE_FOLDER = "../Session-04/"
-gene_list=["U5", "ADA", "FRAT1"]
+gene_list=["U5", "ADA", "FRAT1", "FXN"]
 
 print("-----| Exercise 3 |------")
 for gene in gene_list:

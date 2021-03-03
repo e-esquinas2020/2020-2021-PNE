@@ -34,3 +34,13 @@ def seq_count(seq):
     #for d in seq:
     #   gene_dict[d] += 1
     #return gene_dict
+
+def seq_reverse(seq):
+    return seq[::-1]
+
+def seq_complement(seq):
+    gene_dict = {"A": "T", "C": "G", "G": "C", "T": "A"}
+    comp_str = ""
+    for b in seq:
+       comp_str += gene_dict[b]
+    return comp_str
