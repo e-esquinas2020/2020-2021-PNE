@@ -1,8 +1,11 @@
 from pathlib import Path
 class Seq:
     """A class for representing sequences"""
-    def __init__(self, strbases="NULL"):
-        if strbases == "NULL":
+    NULL_SEQUENCE = "NULL"
+    INVALID_SEQUENCE = "ERROR"
+
+    def __init__(self, strbases=NULL_SEQUENCE):
+        if strbases == Seq.NULL_SEQUENCE :
             print("NULL sequence created")
             self.strbases = strbases
         else:
@@ -10,7 +13,7 @@ class Seq:
                 print("New sequence created!")
                 self.strbases = strbases
             else:
-                self.strbases = "Error!"
+                self.strbases = Seq.INVALID_SEQUENCE
                 print("INCORRECT Sequence detected")
 
     @staticmethod
@@ -26,34 +29,49 @@ class Seq:
 
     def len(self):
         """Calculate the length of the sequence"""
-        if self.strbases == "NULL" or self.strbases == "Error!":
+        if self.strbases == Seq.NULL_SEQUENCE or self.strbases == Seq.INVALID_SEQUENCE:
             return 0
         else:
             return len(self.strbases)
 
-    def take_out_first_line(self, seq):
+    @staticmethod #we are not using attrubutes of the class (like self.strbases), so its staticmethod
+    def take_out_first_line(seq):
         return seq[seq.find("\n") + 1:].replace("\n", "")
 
     def seq_read_fasta(self, filename):
         #sequence = Path(filename).read_text()
-        sequence = take_out_first_line(Path(filename).read_text())
-        return sequence
+        self.strbases = Seq.take_out_first_line(Path(filename).read_text())
+        return self.strbases
 
-    def count_base(self, base):
-        return self.strbases.count(base)
+    def count_base(self):
+        a, c, t, g = 0, 0, 0, 0
+        if self.strbases == Seq.NULL_SEQUENCE or self.strbases == Seq.INVALID_SEQUENCE:
+            return a, c, t, g
+        for d in self.strbases:
+            if d == "A":
+                a += 1
+            elif d == "C":
+                c += 1
+            elif d == "T":
+                t += 1
+            elif d == "G":
+                g += 1
+        return a, c, t, g
 
 
     def seq_count(self):
         gene_dict = {"A": 0, "C": 0, "G": 0, "T": 0}
-        if self.strbases == "NULL" or self.strbases == "Error!":
+        if self.strbases == Seq.NULL_SEQUENCE or self.strbases == Seq.INVALID_SEQUENCE:
             return gene_dict
         else:
             for d in self.strbases:
                 gene_dict[d] += 1
             return gene_dict
+        #a, c, t, g= self.count_base()
+        #return gene_dict = {"A": a, "C": c, "G": g, "T": t}
 
     def seq_reverse(self):
-        if self.strbases == "NULL" or self.strbases == "Error!":
+        if self.strbases == Seq.NULL_SEQUENCE or self.strbases == Seq.INVALID_SEQUENCE:
             return self.strbases
         else:
             return self.strbases[::-1]
@@ -61,9 +79,13 @@ class Seq:
     def seq_complement(self):
         gene_dict = {"A": "T", "C": "G", "G": "C", "T": "A"}
         comp_str = ""
-        if self.strbases == "NULL" or self.strbases == "Error!":
+        if self.strbases == Seq.NULL_SEQUENCE or self.strbases == Seq.INVALID_SEQUENCE:
             return self.strbases
         else:
             for b in self.strbases:
                comp_str += gene_dict[b]
             return comp_str
+
+    #def test_seq(self):
+        #s1=
+        #return s1
