@@ -9,9 +9,11 @@ def print_result(i, sequence):
 
 print("-----| Exercise 7 |------")
 s1 = Seq()
+s12 = Seq()
+s12.seq_read_fasta("U5.txt")
 s2 = Seq("ACTGA")
 s3 = Seq("Invalid sequence")
-list_seq = [s1, s2, s3]
+list_seq = [s1, s12, s2, s3]
 
 
 

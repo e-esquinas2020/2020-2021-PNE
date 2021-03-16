@@ -8,4 +8,4 @@ print("-----| Exercise 8 |------")
 for gene in gene_list:
     seq = Seq0.seq_read_fasta(GENE_FOLDER + gene + ".txt")
     inverse = [(value, key) for key, value in Seq0.seq_count(seq).items()]
-    print("Gene", gene, ": Most frequent Base:", max(inverse))
+    print("Gene", gene, ": Most frequent Base:", max(inverse)[1])

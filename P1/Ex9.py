@@ -10,4 +10,4 @@ print("-----| Exercise 9 |------")
 s1 = Seq()
 s1.seq_read_fasta("U5.txt")
 
-print_result( s1)
+print_result(s1)

@@ -70,6 +70,7 @@ class Seq:
         #a, c, t, g= self.count_base()
         #return gene_dict = {"A": a, "C": c, "G": g, "T": t}
 
+
     def seq_reverse(self):
         if self.strbases == Seq.NULL_SEQUENCE or self.strbases == Seq.INVALID_SEQUENCE:
             return self.strbases
