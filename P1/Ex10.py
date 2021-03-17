@@ -1,13 +1,12 @@
 from Seq1 import Seq
 
-gene_list=["U5", "ADA", "FRAT1", "FXN", "RNU6_269P"]
+FOLDER = "../Session-04/"
+EXT = ".txt"
+GENES = ["U5", "ADA", "FRAT1", "FXN", "RNU6_269P"]
+BASES = ['A', 'T', 'C', 'G']
 
-def print_result(list):
-    for gene in list:
-        sequence = (Seq.seq_read_fasta(str(gene) + ".txt")).seq_count()
-        value_list = list(sequence.values())
-        print("Gene", gene, ": Most frequent Base:", max(value_list)[1])
-
-print("-----| Exercise 10 |------")
-
-print_result(gene_list)
+for gene in GENES:
+    s = Seq(Seq().seq_read_fasta(FOLDER + gene + EXT)).seq_count()
+    value_list = list(s.values())
+    maximum = max(value_list)
+    print(f"Gene {gene}: Most frequent Base: {BASES[value_list.index(maximum)]}")
