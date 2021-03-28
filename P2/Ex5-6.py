@@ -11,7 +11,7 @@ FILENAME = "U5.txt"
 
 c.talk("Sending the U5 Gene to the server...")
 
-sequence = Seq().read_fasta(FOLDER + FILENAME)
+sequence = Seq().seq_read_fasta(FOLDER + FILENAME)
 base = str(sequence)
 number = 10
 for i in range(5):

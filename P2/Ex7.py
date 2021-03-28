@@ -11,7 +11,7 @@ c2 = Client(IP, PORT2)
 FOLDER = "../Session-04/"
 FILENAME = "FRAT1.txt"
 
-sequence = Seq().read_fasta(FOLDER + FILENAME)
+sequence = Seq().seq_read_fasta(FOLDER + FILENAME)
 base = str(sequence)
 number = 10
 
